@@ -5,4 +5,10 @@
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
+  <ion-searchbar
+    [(ngModel)]="miBuscador"
+    [showCancelButton]="miStringDeCancell"
+    (ionInput)="onInput($event)"
+    (ionCancel)="onCancel($event)">
+  </ion-searchbar>
 </ion-header>
