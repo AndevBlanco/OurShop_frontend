@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MenuComponent } from './pages/menu/menu.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 const routes: Routes = [
   // {
@@ -10,7 +11,7 @@ const routes: Routes = [
   //   loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
   // },
   {
-    path: 'home', component: HomeComponent,
+    path: 'home', component: HomeComponent, pathMatch: 'full'
    
   },
   {
@@ -19,7 +20,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'login', component:LoginComponent,
+     path: 'login', component: LoginComponent , pathMatch: 'full'
+  },
+  {
+    path:'signup', component:SignupComponent , pathMatch:'full'
   }
 ];
 

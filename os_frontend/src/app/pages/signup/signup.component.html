@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title >Sign Up</ion-title>
+    <ion-buttons slot="start"  >
+      <ion-button color = "dark" [routerLink]="['/home']" routerLinkActive="router-link-active" >
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/login']">Login</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header">
+    <h1>Register Now</h1>
+    <h2>Start Shop</h2>
+  </div>
+  <div class="form-container">
+    <form  id="">
+      <ion-input class = "input-label"  type ="text"  placeholder="Name.."></ion-input>
+      <ion-input class = "input-label"  type ="text"  placeholder="LastName..."></ion-input>
+      <ion-input class = "input-label"  type ="text"  placeholder="NickName..."></ion-input>
+      <ion-input class = "input-label"  type ="text"  placeholder="Addreess"></ion-input>
+      <ion-input class = "input-label"  type ="email"  placeholder="Email"></ion-input>
+      <ion-input class = "input-label"  type ="password" placeholder="Password"></ion-input>
+      <ion-input class = "input-label"  type ="password" placeholder=" Confirm password"></ion-input>
+      <ion-button class="button-submit" expand="block" shape ="round">Join</ion-button>
+    </form>
+  </div>
+</ion-content>
