@@ -24,6 +24,7 @@ var controllers = {
 
             product.name = params.name;
             product.price = params.price;
+            product.type = params.type;
             product.country = params.country;
             product.date_manufacture = params.date_manufacture;
             product.description = params.description;
