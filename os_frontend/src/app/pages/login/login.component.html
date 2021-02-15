@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+    <ion-buttons slot="start"  >
+      <ion-button color = "dark" [routerLink]="['/home']" routerLinkActive="router-link-active" >
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/signup']">Sign Up</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header">
+    <h1>Login</h1>
+    <ion-icon name="person-sharp"></ion-icon>
+  </div>
+  <div class="form-container">
+    <form  id="">
+     
+      <ion-input class = "input-label"  type ="email"  placeholder="Email"></ion-input>
+      <ion-input class = "input-label"  type ="password" placeholder="Password"></ion-input>
+      <ion-button class="button-submit" expand="block" shape ="round">Login</ion-button>
+    </form>
+  </div>
+</ion-content>

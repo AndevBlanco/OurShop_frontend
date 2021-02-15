@@ -4,5 +4,9 @@
     <ion-buttons slot="start" name="menu">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/login']">Login</ion-button>
+      <ion-button [routerLink]="['/signup']">Sign Up</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
