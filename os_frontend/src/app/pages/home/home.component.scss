@@ -1,3 +1,16 @@
+$primary_color: linear-gradient(90deg, rgb(110,94,254) 0%, rgba(73,63,252,1) 100%);
+
 ion-title{
     text-align: center;
 }
+
+ion-toolbar{
+    --background: $primary_color;
+}
+
+ion-chip{
+    color: $primary_color;
+    display: flex;
+    justify-content: center;
+}
+
