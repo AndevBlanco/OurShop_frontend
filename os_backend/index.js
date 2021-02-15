@@ -6,7 +6,7 @@ var app = require('./app');
 mongoose.Promise = global.Promise
 
 mongoose.connect(
-    'mongodb+srv://AndevBlanco:rAcRQAOuQedmDqua@ourshop.sawvp.mongodb.net/OurShop?retryWrites=true&w=majority',
+    'mongodb+srv://AndevBlanco:rAcRQAOuQedmDqua@ourshop.sawvp.mongodb.net/Viena?retryWrites=true&w=majority',
     { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}
     )
     .then(() => {
