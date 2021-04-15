@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title >Sign Up</ion-title>
     <ion-buttons slot="start"  >
@@ -10,23 +10,46 @@
       <ion-button [routerLink]="['/login']">Login</ion-button>
     </ion-buttons>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
-  <div class="header">
-    <h1>Register Now</h1>
-    <h2>Start Shop</h2>
-  </div>
-  <div class="form-container">
-    <form  id="">
-      <ion-input class = "input-label"  type ="text"  placeholder="Name.."></ion-input>
-      <ion-input class = "input-label"  type ="text"  placeholder="LastName..."></ion-input>
-      <ion-input class = "input-label"  type ="text"  placeholder="NickName..."></ion-input>
-      <ion-input class = "input-label"  type ="text"  placeholder="Addreess"></ion-input>
-      <ion-input class = "input-label"  type ="email"  placeholder="Email"></ion-input>
-      <ion-input class = "input-label"  type ="password" placeholder="Password"></ion-input>
-      <ion-input class = "input-label"  type ="password" placeholder=" Confirm password"></ion-input>
-      <ion-button class="button-submit" expand="block" shape ="round">Join</ion-button>
-    </form>
+  <div class="container">
+    <div class="header">
+      <p>Crea tu <span>cuenta</span></p>
+      <p><span>Inicia</span> a</p>
+      <p>Comprar <span>ahora</span></p>
+    </div>
+    <div class="form-container">
+      <form >
+        <ion-input class = "input-label"  type ="text"  placeholder="Nombre">
+          <img src="./../../../assets/icon/person.svg" alt="Icono de persona ">
+        </ion-input>
+        <ion-input class = "input-label"  type ="text"  placeholder="Apellido">
+          <img src="./../../../assets/icon/person.svg" alt="Icono de persona ">
+        </ion-input>
+        <ion-input class = "input-label"  type ="text"  placeholder="Nombre de Usuario">
+          <img src="./../../../assets/icon/person.svg" alt="Icono de persona ">
+        </ion-input>
+        <ion-input class = "input-label"  type ="text"  placeholder="Dirección">
+          <img src="./../../../assets/icon/address.svg" alt="Icono de direccion">
+        </ion-input>
+        <ion-input class = "input-label"  type ="email"  placeholder="Email">
+          <img src="./../../../assets/icon/email.svg" alt="Icono de Email">
+        </ion-input>
+        <ion-input class = "input-label"  type ="password" placeholder="Contraseña">
+          <img src="./../../../assets/icon/password2.svg" alt="Icono de contraseña">
+        </ion-input>
+        <ion-input class = "input-label"  type ="password" placeholder=" Confirmar contraseña">
+          <img src="./../../../assets/icon/password2.svg" alt="Icono de contraseña ">
+        </ion-input>
+        <ion-input class = "input-label"  type ="password" placeholder=" Tipo de usuario">
+          <img src="./../../../assets/icon/person.svg" alt="Icono de persona ">
+        </ion-input>
+        <ion-button class="button-submit" expand="block" shape ="round">Registrarme</ion-button>
+        <div class="container-login">
+          <p id="text-login">¿Ya tienes una cuenta?<span id="link-login" [routerLink]="['/login']" routerLinkActive="router-link-active" >Inicia sesion</span></p>
+        </div>
+      </form>
+    </div>
   </div>
 </ion-content>

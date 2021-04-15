@@ -31,8 +31,8 @@
         <img src="../../../assets/icon/password.svg" alt="icono de email">
       </ion-input>
       <div class="container-register">
-        <p>¿Aún no tienes una cuenta?<span>Registrate</span></p>
-    </div>
+        <p>¿Aún no tienes una cuenta?<span [routerLink]="['/signup']" routerLinkActive="router-link-active" >Registrate</span></p>
+      </div>
       <ion-button class="button-submit" expand="block" shape ="round">Iniciar</ion-button>
     </form>
   </div>
