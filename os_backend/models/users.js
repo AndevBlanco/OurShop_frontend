@@ -6,15 +6,18 @@ var Schema = mongoose.Schema;
 var UsersSchema = Schema({
     first_name: String,
     last_name: String,
-    age: Number,
-    dni: String
-    /*cart: [{
+    dni: String,
+    nick_name: String,
+    address: String,
+    email: String,
+    passwd: String,
+    cart: [{
         nameP: String,
         priceP: Number,
         countryP: String,
         dateM: Date,
         dateA: Date
-    }],*/
+    }]
 });
 
 module.exports = mongoose.model('Users', UsersSchema);
