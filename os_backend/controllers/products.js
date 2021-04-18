@@ -8,9 +8,11 @@ var controllers = {
             Products.find().exec((err, product) => {
                 if(err) return res.status(500).send({status: false, type: '500', error: err});
                 if (!product) return res.status(404).send({status:false, type: '404'});
-                return res.status(200).send({
-                    product
-                });
+                var product_list = []
+                for(var i in product){
+                    product_list.push(product[i]);
+                }
+                return res.status(200).send(product_list);
             });
         } catch (error) {
             return res.status(500).send({status:false, type: '500', error: err});

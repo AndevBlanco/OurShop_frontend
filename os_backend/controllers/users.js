@@ -22,6 +22,7 @@ var controller = {
         try {
             var user = Users();
             var params = req.body;
+            console.log(params);
             user.first_name = params.first_name;
             user.last_name = params.last_name;
             user.dni = params.dni;
