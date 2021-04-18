@@ -6,6 +6,9 @@ var Schema = mongoose.Schema;
 var UsersSchema = Schema({
     first_name: String,
     last_name: String,
+    username: String,
+    email: String,
+    address: String,
     age: Number,
     dni: String
     /*cart: [{
