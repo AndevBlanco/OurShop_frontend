@@ -9,8 +9,7 @@ var ProductsSchema = Schema({
     type: String,
     country: String,
     date_manufacture: Date,
-    description: String,
-    date_added: Date
+    description: String
 });
 
 module.exports = mongoose.model('Products', ProductsSchema);

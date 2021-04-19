@@ -1,6 +1,9 @@
 {
   "name": "os_backend",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.x"
+  },
   "description": "This is our project about a market application",
   "main": "index.js",
   "scripts": {

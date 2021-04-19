@@ -3,6 +3,14 @@
 const Products = require('../models/products');
 
 var controllers = {
+    getProductItem: function (req, res) {
+        var productId = req.query.id;
+        Products.findById(productId, (err, product) => {
+            if (err) return res.status(500).send({ message: "Error al devolver el id" });
+            if (!product) return res.status(404).send({ message: "La pregunta no se encontro" });
+            return res.status(200).send(product)
+        })
+    },
     getAll: function(req, res){
         try {
             Products.find().exec((err, product) => {
@@ -23,7 +31,6 @@ var controllers = {
         try {
             var product = Products();
             var params = req.body;
-
             product.name = params.name;
             product.price = params.price;
             product.type = params.type;
