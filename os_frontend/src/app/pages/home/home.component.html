@@ -3,7 +3,7 @@
     <ion-buttons slot="start" name="menu">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
-
+    <ion-searchbar></ion-searchbar>
     <ion-buttons slot="end">
       <ion-button [routerLink]="['/login']">Login</ion-button>
       <ion-button [routerLink]="['/signup']">Sign Up</ion-button>
@@ -99,39 +99,13 @@
   
     <!-- slide por tema de producto -->
 
-    <ion-card>
+    <ion-card (click)="goProduct(item._id)" *ngFor="let item of products">
       <ion-card-header>
-        <ion-card-title>{{products[0]}}</ion-card-title>
+        <ion-card-subtitle>{{item.price}}</ion-card-subtitle>
+        <ion-card-title>{{item.name}}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        {{product_description[0]}}
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>{{products[1]}}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        {{product_description[1]}}
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>{{products[2]}}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        {{product_description[2]}}
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>{{products[3]}}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        {{product_description[3]}}
+        {{item.description}}
       </ion-card-content>
     </ion-card>
 </ion-content>
