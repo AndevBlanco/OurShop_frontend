@@ -1,0 +1,24 @@
+.toolbar-product {
+    text-align: center;
+    border-end-end-radius: 30px;
+    border-end-start-radius: 30px;
+}
+.toolbar-product-footer {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    height: 100px;
+}
+.product-button {
+    display: flex;
+    justify-content: center;
+}
+.footer-buttons {
+    .footer-button {
+        display: flex;
+        justify-content: center;
+        a {
+            color: white;
+        }
+    }
+    
+}
