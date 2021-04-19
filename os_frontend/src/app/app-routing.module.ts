@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MenuComponent } from './pages/menu/menu.component';
+import { ProductComponent } from './pages/product/product.component';
 import { SignupComponent } from './pages/signup/signup.component';
 
 const routes: Routes = [
@@ -24,6 +25,15 @@ const routes: Routes = [
   },
   {
     path:'signup', component:SignupComponent , pathMatch:'full'
+  },
+  {
+    path: 'product',
+    children: [
+      {
+        path: ':label',
+        component: ProductComponent
+      }
+    ]
   }
 ];
 
