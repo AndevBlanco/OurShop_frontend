@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { JwtResponse } from 'src/app/models/jwtresponse';
 import { User } from 'src/app/models/user';
+import { UserLogin } from 'src/app/models/userLogin.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,7 @@ export class AuthService {
       ));
   }
 
-  login(user:User):Observable<JwtResponse>{
+  login(user:UserLogin):Observable<JwtResponse>{
     return this.httpClient.post<JwtResponse>(`${this.AUTH_SERVER}/login`,user)
     .pipe(tap(
       (res:JwtResponse) =>{

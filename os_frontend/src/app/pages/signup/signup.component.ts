@@ -12,7 +12,9 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class SignupComponent implements OnInit {
 
   formRegister:FormGroup;
+  user:User;
 
+  private isEmail = /\S+@\S+\.\S+/;
   constructor(
     private authService: AuthService,
     private formBuilder:FormBuilder,
@@ -22,30 +24,38 @@ export class SignupComponent implements OnInit {
     this.buildForm();
   }
 
-  ngOnInit() {}
-
-  onRegister(formRegister){
-
-    const userData = {
-      name: this.formRegister.value.name,
-      lastName : this.formRegister.value.lastName,
-      nickName:this.formRegister.value.nickName,
-      address: this.formRegister.value.address,
-      email: this.formRegister.value.email,
-      password: this.formRegister.value.password,
-      role: this.formRegister.value.role
-    } 
-    this.authService.register(userData).subscribe((response)=>{
-      this.router.navigateByUrl('/home')
-    })
-    console.log('registro',userData)
+  ngOnInit() {
+    // this.formRegister.patchValue(this.user)
   }
+
+  onRegister(){
+
+    if(this.formRegister.valid){
+
+      const userData = {
+        name: this.formRegister.value.name,
+        lastName : this.formRegister.value.lastName,
+        nickName: this.formRegister.value.nickName,
+        address: this.formRegister.value.address,
+        email: this.formRegister.value.email,
+        password: this.formRegister.value.password,
+        role: this.formRegister.value.role
+      } 
+      this.authService.register(userData).subscribe((response)=>{
+        this.formRegister.reset();
+        this.router.navigate(['home'])
+      })
+      console.log('registro',userData)
+    }
+
+  }
+
 
   private buildForm(){
     this.formRegister = this.formBuilder.group({
       name:['',[Validators.required]],
-      lastname:['',[Validators.required]],
-      nickname:['',[Validators.required]],
+      lastName:['',[Validators.required]],
+      nickName:['',[Validators.required]],
       address:['',[Validators.required]],
       email:['',[Validators.required,Validators.email]],
       password:['',[Validators.required]],
@@ -53,7 +63,5 @@ export class SignupComponent implements OnInit {
       role:['',Validators.required]
     });
   }
-
-  
 
 }

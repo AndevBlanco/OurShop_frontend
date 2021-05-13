@@ -12,11 +12,24 @@ import { HomeComponent } from './pages/home/home.component';
 import { SignupComponent } from './pages/signup/signup.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent,LoginComponent,HomeComponent,SignupComponent],
+  declarations: [
+    AppComponent,
+    MenuComponent,
+    LoginComponent,
+    HomeComponent,
+    SignupComponent,
+    ],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
   exports: [MenuComponent]
