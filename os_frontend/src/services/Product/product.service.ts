@@ -16,4 +16,8 @@ export class ProductService {
     return this.http.get<Product>('https://ourshopbackend.herokuapp.com/products/getAll');
   }
 
+  getProduct(label:any) {
+    return this.http.get<Product>(`https://ourshopbackend.herokuapp.com/products?id=${label}`);
+  }
+
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from "@angular/router";
-import { ProductService } from "src/app/services/Product/product.service";
+import { ProductService } from "src/services/Product/product.service";
 
 @Component({
   selector: 'app-home',

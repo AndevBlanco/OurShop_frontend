@@ -10,15 +10,32 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { ProductComponent } from './pages/product/product.component';
+import { DescriptionModalComponent } from './pages/product/description-modal/description-modal.component';
+import { OpinionsComponent } from './pages/product/opinions/opinions.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent,LoginComponent,HomeComponent,SignupComponent],
+  declarations: [
+    AppComponent,
+    MenuComponent,
+    LoginComponent,
+    HomeComponent,
+    SignupComponent,
+    ProductComponent,
+    DescriptionModalComponent,
+    OpinionsComponent,
+  ],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    HttpClientModule,
+    AppRoutingModule,
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
-  exports: [MenuComponent]
+  exports: [MenuComponent],
 })
 export class AppModule {}
