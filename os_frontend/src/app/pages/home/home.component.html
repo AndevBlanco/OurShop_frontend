@@ -111,5 +111,13 @@
         {{item.description}}
       </ion-card-content>
     </ion-card>
+    <ion-fab *ngIf="userAuth" vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button>
+	<ion-icon name="share"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="top">
+	<ion-fab-button routerLink="/crear-producto" color="medium"><ion-icon name="add"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>
   

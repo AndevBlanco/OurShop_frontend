@@ -13,6 +13,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { ProductComponent } from './pages/product/product.component';
 import { DescriptionModalComponent } from './pages/product/description-modal/description-modal.component';
 import { OpinionsComponent } from './pages/product/opinions/opinions.component';
+import { ProductAddComponent } from "./pages/product/product-add/product-add.component";
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProductComponent,
     DescriptionModalComponent,
     OpinionsComponent,
+    ProductAddComponent,
   ],
   entryComponents: [],
   imports: [

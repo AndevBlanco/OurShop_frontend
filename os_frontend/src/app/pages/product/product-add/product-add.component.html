@@ -1,0 +1,38 @@
+<ion-content>
+  <ion-item>
+    <ion-button *ngIf="!photoSvc.photos[0]?.webviewPath" (click)="addNewToGallery()">Take Picture</ion-button>
+    <ion-img *ngIf="photoSvc.photos[0]?.webviewPath" [src]="photoSvc.photos[0]?.webviewPath"></ion-img>
+  </ion-item>
+  <form [formGroup]="form" action="" accept-charset="utf-8">
+    <ion-item>
+       <ion-input type="text" formControlName="name" placeholder="Nombre"></ion-input>
+    </ion-item>	
+    <ion-item>
+      <ion-input type="number" formControlName="price" placeholder="Precio"></ion-input>
+    </ion-item>
+    <ion-item>
+      <h3>Descripcion</h3>
+    </ion-item>
+    <ion-item>
+      <ion-textarea formControlName="description"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Stock</ion-label>
+      <ion-input type="number" formControlName="stock"></ion-input>
+    </ion-item>
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-toolbar class="toolbar-product-add-footer" color="primary">
+    <ion-grid>
+      <ion-row class="footer-add-buttons">
+        <ion-col class="footer-add-button">
+	  <a type="submit">Publicar</a>
+        </ion-col>
+        <ion-col class="footer-add-button">
+	  <a routerLink="/">Cancelar</a>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
