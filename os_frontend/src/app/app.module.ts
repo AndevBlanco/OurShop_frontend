@@ -10,6 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { ProductComponent } from './pages/product/product.component';
+import { DescriptionModalComponent } from './pages/product/description-modal/description-modal.component';
+import { OpinionsComponent } from './pages/product/opinions/opinions.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,7 +24,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     HomeComponent,
     SignupComponent,
-    ],
+    ProductComponent,
+    DescriptionModalComponent,
+    OpinionsComponent,
+  ],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -32,6 +38,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
-  exports: [MenuComponent]
+  exports: [MenuComponent],
 })
 export class AppModule {}

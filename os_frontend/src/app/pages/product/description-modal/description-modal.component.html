@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar color="primary" class="toolbar-product">
+    <ion-title>{{product?.name}}</ion-title>
+  </ion-toolbar>  
+</ion-header>
+<ion-content>
+  <ion-item>
+    <p>{{product?.description}}</p>
+  </ion-item>
+  <ion-button (click)="closeModal()">
+   Cerrar 
+  </ion-button>
+</ion-content>
