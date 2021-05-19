@@ -15,6 +15,7 @@ import { DescriptionModalComponent } from './pages/product/description-modal/des
 import { OpinionsComponent } from './pages/product/opinions/opinions.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,17 +24,28 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     HomeComponent,
     SignupComponent,
+<<<<<<< HEAD
     ProductComponent,
     DescriptionModalComponent,
     OpinionsComponent,
   ],
+=======
+    ],
+>>>>>>> master
   entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+<<<<<<< HEAD
     HttpClientModule,
     AppRoutingModule,
   ],
+=======
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule],
+>>>>>>> master
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
   exports: [MenuComponent],

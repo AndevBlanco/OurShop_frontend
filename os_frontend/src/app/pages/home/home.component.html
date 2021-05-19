@@ -4,7 +4,10 @@
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
     <ion-searchbar></ion-searchbar>
-    <ion-buttons slot="end">
+    <ion-buttons *ngIf="userAuth" slot="end">
+      <ion-button (click)="onLogout()">Salir</ion-button>
+    </ion-buttons>
+    <ion-buttons *ngIf="!userAuth" slot="end">
       <ion-button [routerLink]="['/login']">Login</ion-button>
       <ion-button [routerLink]="['/signup']">Sign Up</ion-button>
     </ion-buttons>
