@@ -31,9 +31,13 @@ export class LoginComponent implements OnInit {
         xpassword : this.formLogin.value.password,
       }
       this.authService.login(userData).subscribe( response => {
-        console.log('hola')
-        this.formLogin.reset();
-        this.router.navigateByUrl('/home')
+        console.log('response logion',response)
+        if(response.login){
+          this.formLogin.reset();
+          this.router.navigateByUrl('/home')
+        }else{
+          alert('Error, ingrese los datos denuevo')
+        }
       })
     }
     console.log('login',this.formLogin)

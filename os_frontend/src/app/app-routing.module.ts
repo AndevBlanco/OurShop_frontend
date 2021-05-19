@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { UserGuard } from './guards/user.guard';
 import { AccountComponent } from './pages/account/account.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -28,7 +29,14 @@ const routes: Routes = [
     path:'signup', component:SignupComponent , pathMatch:'full'
   },
   {
-    path:'account',component:AccountComponent, pathMatch:'full'
+    path:'account',
+    children:[
+      {
+        path:':id',
+        component:AccountComponent,
+        canActivate:[UserGuard]
+      }
+    ],
   },
   {
     path: 'product',

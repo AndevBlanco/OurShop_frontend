@@ -4,4 +4,5 @@ export interface JwtResponse {
         email:string,
         accesToken:string,
         expiresIn:string,
+        login:boolean
 }
