@@ -27,10 +27,11 @@ export class LoginComponent implements OnInit {
 
     if(this.formLogin.valid){
       const userData:UserLogin = {
-        email : this.formLogin.value.email,
-        password : this.formLogin.value.password,
+        xemail : this.formLogin.value.email,
+        xpassword : this.formLogin.value.password,
       }
       this.authService.login(userData).subscribe( response => {
+        console.log('hola')
         this.formLogin.reset();
         this.router.navigateByUrl('/home')
       })
