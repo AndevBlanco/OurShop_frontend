@@ -5,6 +5,7 @@ import { AccountComponent } from './pages/account/account.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MenuComponent } from './pages/menu/menu.component';
+import {ProductAddComponent} from './pages/product/product-add/product-add.component';
 import { ProductComponent } from './pages/product/product.component';
 import { SignupComponent } from './pages/signup/signup.component';
 
@@ -46,6 +47,10 @@ const routes: Routes = [
         component: ProductComponent
       }
     ]
+  },
+  {
+    path: 'crear-producto',
+    component: ProductAddComponent
   }
 ];
 
