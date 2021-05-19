@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AccountComponent } from './pages/account/account.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MenuComponent } from './pages/menu/menu.component';
@@ -25,6 +26,9 @@ const routes: Routes = [
   },
   {
     path:'signup', component:SignupComponent , pathMatch:'full'
+  },
+  {
+    path:'account',component:AccountComponent, pathMatch:'full'
   },
   {
     path: 'product',

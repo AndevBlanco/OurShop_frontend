@@ -29,23 +29,29 @@ export class SignupComponent implements OnInit {
   }
 
   onRegister(){
+    let role:number=+this.formRegister.value.role;
 
+    console.log('formulario',this.formRegister.value,role)
     if(this.formRegister.valid){
-
-      const userData = {
-        name: this.formRegister.value.name,
-        lastName : this.formRegister.value.lastName,
-        nickName: this.formRegister.value.nickName,
+      console.log('valido')
+      const userData:User = {
+        first_name: this.formRegister.value.name,
+        last_name : this.formRegister.value.lastName,
+        username: this.formRegister.value.nickName,
         address: this.formRegister.value.address,
         email: this.formRegister.value.email,
-        password: this.formRegister.value.password,
-        role: this.formRegister.value.role
+        passwd: this.formRegister.value.password,
+        type_user: role
       } 
       this.authService.register(userData).subscribe((response)=>{
+        console.log('registro',userData)
         this.formRegister.reset();
-        this.router.navigate(['home'])
+        this.router.navigateByUrl('/home')
       })
       console.log('registro',userData)
+    }else{
+
+      console.log('in-valido')
     }
 
   }
@@ -59,8 +65,7 @@ export class SignupComponent implements OnInit {
       address:['',[Validators.required]],
       email:['',[Validators.required,Validators.email]],
       password:['',[Validators.required]],
-      confirmPassword:['',[Validators.required]],
-      role:['',Validators.required]
+      role:[['',Validators.required]]
     });
   }
 

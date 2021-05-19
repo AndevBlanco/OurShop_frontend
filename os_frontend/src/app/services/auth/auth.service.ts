@@ -11,19 +11,19 @@ import { UserLogin } from 'src/app/models/userLogin.model';
 })
 export class AuthService {
 
-  AUTH_SERVER: string = 'http://192.168.1.52:3000';
+  AUTH_SERVER: string = 'https://ourshopbackend.herokuapp.com/users';
   authSubject = new BehaviorSubject(false);
   private token : string; 
 
   constructor( private httpClient:HttpClient) { }
 
   register(user:User):Observable<JwtResponse>{
-    return this.httpClient.post<JwtResponse>(`${this.AUTH_SERVER}/register`,user)
+    return this.httpClient.post<JwtResponse>(`${this.AUTH_SERVER}/`,user)
     .pipe(tap(
       (res:JwtResponse) => {
         if(res){
           //Guardar Token
-          this.saveToken(res.dataUser.accesToken, res.dataUser.expiresIn);    
+          this.saveToken(res.accesToken, res.expiresIn);    
         }
       }
       ));
@@ -34,7 +34,8 @@ export class AuthService {
     .pipe(tap(
       (res:JwtResponse) =>{
         if(res){
-          this.saveToken(res.dataUser.accesToken,res.dataUser.expiresIn);
+          console.log('response',res.accesToken)
+          this.saveToken(res.accesToken,res.expiresIn);
         }
       }
     ));
