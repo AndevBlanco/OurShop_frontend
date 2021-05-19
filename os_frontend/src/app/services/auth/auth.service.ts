@@ -5,6 +5,7 @@ import { tap } from 'rxjs/operators';
 import { JwtResponse } from 'src/app/models/jwtresponse';
 import { User } from 'src/app/models/user';
 import { UserLogin } from 'src/app/models/userLogin.model';
+import { UserService } from '../Users/user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +16,18 @@ export class AuthService {
   authSubject = new BehaviorSubject(false);
   private token : string; 
 
-  constructor( private httpClient:HttpClient) { }
+  constructor( 
+    private httpClient:HttpClient,
+    private userService:UserService
+    ) { }
 
   register(user:User):Observable<JwtResponse>{
     return this.httpClient.post<JwtResponse>(`${this.AUTH_SERVER}/`,user)
     .pipe(tap(
       (res:JwtResponse) => {
         if(res){
+          //enviar id de usuario
+          this.saveId(res.id);
           //Guardar Token
           this.saveToken(res.accesToken, res.expiresIn);    
         }
@@ -34,7 +40,9 @@ export class AuthService {
     .pipe(tap(
       (res:JwtResponse) =>{
         if(res){
-          console.log('response',res.accesToken)
+          //enviar id de usuario
+          this.saveId(res.id);
+          //Guardar token
           this.saveToken(res.accesToken,res.expiresIn);
         }
       }
@@ -45,6 +53,7 @@ export class AuthService {
     this.token = '';
     localStorage.removeItem("ACCESS_TOKEN");
     localStorage.removeItem("EXPIRE_IN");
+    this.removeId();
   }
 
   private saveToken(token: string, expiresIn:string):void{
@@ -58,6 +67,14 @@ export class AuthService {
       this.token = localStorage.getItem("ACCESS_TOKEN");
     }
     return this.token
+  }
+
+  saveId(id){
+    this.userService.saveId(id);
+    // this.userService.userId=id
+  }
+  removeId(){
+    this.userService.removeId();
   }
 
   isAuth():Observable<boolean>{

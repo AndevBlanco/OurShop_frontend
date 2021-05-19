@@ -17,6 +17,7 @@ import { ProductAddComponent } from "./pages/product/product-add/product-add.com
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AccountComponent } from './pages/account/account.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DescriptionModalComponent,
     OpinionsComponent,
     ProductAddComponent,
+    AccountComponent,
   ],
   entryComponents: [],
   imports: [
