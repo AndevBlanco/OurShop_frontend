@@ -1,5 +1,41 @@
-<div>
-  <h1>
-    Cuenta funcionando
-  </h1>
-</div>
+<ion-header>
+  <ion-toolbar color="primary" class="toolbar-product">
+    <ion-title slot="end">{{user?.first_name}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home">f</ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-avatar class="profile-img">
+      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+  </ion-avatar>
+  
+    
+   <div class="form-container">
+    <form  (ngSubmit)="onSave()"[formGroup]="formUpdate" >
+      
+      <ion-input class = "input-label"  type ="text" name ="name" formControlName="first_name" required placeholder="Nombre">
+        <img src="./../../../assets/icon/edit.svg" alt="Icono de persona ">
+      </ion-input>
+      <ion-input class = "input-label"  type ="text" name ="name" formControlName="last_name" required placeholder="Apellido">
+        <img src="./../../../assets/icon/edit.svg" alt="Icono de persona ">
+      </ion-input>
+      <ion-input class = "input-label"  type ="text" name ="nickName" formControlName="username" required placeholder="Nombre de Usuario">
+        <img src="./../../../assets/icon/edit.svg" alt="Icono de persona ">
+      </ion-input>
+      <ion-input class = "input-label"  type ="text" name ="address" formControlName="address" required placeholder="Dirección">
+        <img src="./../../../assets/icon/edit.svg" alt="Icono de direccion">
+      </ion-input>
+      <ion-input class = "input-label"  type ="email" name ="email" formControlName="email" required placeholder="Email">
+        <img src="./../../../assets/icon/edit.svg" alt="Icono de Email">
+      </ion-input>
+      <div class="buttons">
+        <ion-button (click)="goDataPay()"class="button-submit" expand="block" fill="outline" shape ="round">Datos de Pago</ion-button>
+        <ion-button (click)="goChangePassword()"class="button-submit" expand="block" fill="outline" shape ="round">Cambiar Contraseña</ion-button>
+        <ion-button type="submit" class="button-submit" expand="block" shape ="round">Guardar Cambios</ion-button>
+      </div>
+    </form>
+  </div> 
+</ion-content>
