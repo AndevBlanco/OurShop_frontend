@@ -24,28 +24,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     HomeComponent,
     SignupComponent,
-<<<<<<< HEAD
     ProductComponent,
     DescriptionModalComponent,
     OpinionsComponent,
   ],
-=======
-    ],
->>>>>>> master
   entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-<<<<<<< HEAD
-    HttpClientModule,
-    AppRoutingModule,
-  ],
-=======
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule],
->>>>>>> master
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
   exports: [MenuComponent],

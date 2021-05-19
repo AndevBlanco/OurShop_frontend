@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from "@ionic/angular";
-import { ActivatedRoute } from "@angular/router";
-import { ProductService } from "src/services/Product/product.service";
+import { ProductService } from "src/app/services/Product/product.service";
 import { Product } from "src/app/models/product.model";
+import { NavController, LoadingController } from "@ionic/angular";
 
 @Component({
   selector: 'app-description-modal',
@@ -11,18 +11,14 @@ import { Product } from "src/app/models/product.model";
 })
 export class DescriptionModalComponent implements OnInit {
 
-  @Input() firstName: string;
-  @Input() lastName: string;
-  @Input() middleInitial: string;
+  @Input() label: string;
 
-  label:any;
   product:Product;
   constructor(
     private modalCtrl: ModalController,
-    private router: ActivatedRoute,
     private serviceProduct: ProductService,
+    private load: LoadingController,
   ) { 
-    this.label = this.router.snapshot.paramMap.get('label');
   }
 
   ngOnInit() {
@@ -30,8 +26,13 @@ export class DescriptionModalComponent implements OnInit {
     this.getProduct()
   }
 
-  getProduct(){
+  async getProduct(){
+    const loading = await this.load.create({
+      message: 'Cargando Description...'
+    });
+    await loading.present();
     this.serviceProduct.getProduct(this.label).subscribe(success => {
+      loading.dismiss();
       this.product = success;
       console.log(success);
     });

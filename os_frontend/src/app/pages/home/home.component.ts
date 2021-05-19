@@ -1,12 +1,8 @@
 import { Component, OnInit, DoCheck} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from "@angular/router";
-<<<<<<< HEAD
-import { ProductService } from "src/services/Product/product.service";
-=======
 import { ProductService } from "src/app/services/Product/product.service";
 import { AuthService } from 'src/app/services/auth/auth.service';
->>>>>>> master
 
 @Component({
   selector: 'app-home',

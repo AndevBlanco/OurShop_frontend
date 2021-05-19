@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from "src/services/Product/product.service";
+import { ProductService } from "src/app/services/Product/product.service";
 import { ActivatedRoute } from "@angular/router";
 import { Product } from "src/app/models/product.model";
 import { ModalController } from "@ionic/angular";
@@ -35,14 +35,12 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  goDescription() {
-    this.modalDescription.create({
+  async goDescription(label:string) {
+    const modal = await this.modalDescription.create({
       component: DescriptionModalComponent,
-      // componentProps: {
-      //   'firstName': this.product.name,
-      //   'lastName': 'Adams',
-      //   'middleInitial': 'N'
-      // }
+       componentProps: {
+         'label': label,
+       }
     }).then( (modalSuccess):any => {
       modalSuccess.present();
     });
