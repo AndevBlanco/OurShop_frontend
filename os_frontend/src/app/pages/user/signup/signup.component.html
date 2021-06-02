@@ -12,29 +12,40 @@
         <ion-input class = "input-label"  type ="text" name ="name" formControlName="name" required placeholder="Nombre">
           <img src="./../../../assets/icon/person.svg" alt="Icono de persona ">
         </ion-input>
+
         <ion-input class = "input-label"  type ="text" name ="lastName" formControlName="lastName" required placeholder="Apellido">
           <img src="./../../../assets/icon/person.svg" alt="Icono de persona ">
         </ion-input>
+
         <ion-input class = "input-label"  type ="text" name ="nickName" formControlName="nickName" required placeholder="Nombre de Usuario">
           <img src="./../../../assets/icon/person.svg" alt="Icono de persona ">
         </ion-input>
+
         <ion-input class = "input-label"  type ="text" name ="address" formControlName="address" required placeholder="Dirección">
           <img src="./../../../assets/icon/address.svg" alt="Icono de direccion">
         </ion-input>
+
         <ion-input class = "input-label"  type ="email" name ="email" formControlName="email" required placeholder="Email">
           <img src="./../../../assets/icon/email.svg" alt="Icono de Email">
         </ion-input>
-        <ion-input class = "input-label"  type ="password" name="password" formControlName="password" required placeholder="Contraseña">
+        <span style="color: #DC1735; font-size: 15px;" *ngIf="formRegister.get('email').errors?.email">Correo electronico no valido</span>
+
+        <ion-input class = "input-label"  type ="password" name="password" formControlName="newPassword" required placeholder="Contraseña">
           <img src="./../../../assets/icon/password2.svg" alt="Icono de contraseña">
         </ion-input>
-        <ion-input class = "input-label"  type ="password"  placeholder="Confirmar contraseña">
+        <span style="color: #DC1735; font-size: 15px;" *ngIf="passwordCheck()"> Las contraseñas no coinciden</span>
+
+        <ion-input class = "input-label"  type ="password" formControlName="newConfirmPassword" required  placeholder="Confirmar contraseña">
           <img src="./../../../assets/icon/password2.svg" alt="Icono de contraseña ">
         </ion-input>
+        <span style="color: #DC1735; font-size: 15px;" *ngIf="passwordCheck()"> Las contraseñas no coinciden</span>
+
         <ion-select class="input-select" interface="popover" name="role" formControlName="role" required 
         placeholder="Seleccione su tipo de usuario">
           <ion-select-option value=1>Vendedor</ion-select-option>
           <ion-select-option value=2>Comprador</ion-select-option>
         </ion-select>
+
         <ion-button type="submit" class="button-submit" expand="block" shape ="round">Registrarme</ion-button>
         <div class="container-login">
           <p id="text-login">¿Ya tienes una cuenta?<span id="link-login" [routerLink]="['/login']" routerLinkActive="router-link-active" >Inicia sesion</span></p>

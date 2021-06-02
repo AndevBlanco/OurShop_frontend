@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { passwordMatch } from 'src/app/validators/password.validator';
 
 @Component({
   selector: 'app-signup',
@@ -18,8 +20,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private formBuilder:FormBuilder,
-    private router:Router
-  
+    private router:Router,
+    private toastController:ToastController
   ) { 
     this.buildForm();
   }
@@ -40,13 +42,19 @@ export class SignupComponent implements OnInit {
         username: this.formRegister.value.nickName,
         address: this.formRegister.value.address,
         email: this.formRegister.value.email,
-        passwd: this.formRegister.value.password,
+        passwd: this.formRegister.value.newPassword,
         type_user: role
       } 
-      this.authService.register(userData).subscribe((response)=>{
+      this.authService.register(userData).subscribe( async response =>{
         console.log('registro',userData)
-        this.formRegister.reset();
-        this.router.navigateByUrl('/home')
+        if(response){
+          await this.ToastSucess(response.username).then( () => {
+            this.formRegister.reset();
+            this.router.navigateByUrl('/home')
+          })
+        }else{
+          this.ToastUnsucessful();
+        }
       })
       console.log('registro',userData)
     }else{
@@ -56,6 +64,27 @@ export class SignupComponent implements OnInit {
 
   }
 
+  async ToastSucess(username:string){
+    const toast = await this.toastController.create({
+     header:'Bienvenido '+username+' 😎😎',
+      duration: 3000,
+      position:'bottom',
+      color:"success",
+      animated:true,
+    });
+    await toast.present();   
+  }
+
+  async ToastUnsucessful(){
+    const toast = await this.toastController.create({
+      message: 'Upps algo salio mal🤪, intentalo denuevo',
+      duration: 3000,
+      position:'bottom',
+      color:"danger",
+      animated:true
+    });
+    await toast.present();   
+  }
 
   private buildForm(){
     this.formRegister = this.formBuilder.group({
@@ -64,9 +93,20 @@ export class SignupComponent implements OnInit {
       nickName:['',[Validators.required]],
       address:['',[Validators.required]],
       email:['',[Validators.required,Validators.email]],
-      password:['',[Validators.required]],
+      newPassword:['',[Validators.required]],
+      newConfirmPassword:['',[Validators.required]],
       role:[['',Validators.required]]
+    },
+    {
+      validator:passwordMatch
     });
   }
+
+  passwordCheck(): boolean {
+    return this.formRegister.hasError('noSonIguales') &&
+      this.formRegister.get('newPassword').dirty &&
+      this.formRegister.get('newConfirmPassword').dirty;
+  }
+
 
 }

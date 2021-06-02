@@ -7,9 +7,9 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './pages/login/login.component';
+import { LoginComponent } from './pages/user/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
-import { SignupComponent } from './pages/signup/signup.component';
+import { SignupComponent } from './pages/user/signup/signup.component';
 import { ProductComponent } from './pages/product/product.component';
 import { DescriptionModalComponent } from './pages/product/description-modal/description-modal.component';
 import { OpinionsComponent } from './pages/product/opinions/opinions.component';
@@ -17,7 +17,8 @@ import { ProductAddComponent } from "./pages/product/product-add/product-add.com
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AccountComponent } from './pages/account/account.component';
+import { AccountComponent } from './pages/user/account/account.component';
+import { PasswordComponent } from './pages/user/password/password.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AccountComponent } from './pages/account/account.component';
     OpinionsComponent,
     ProductAddComponent,
     AccountComponent,
+    PasswordComponent
   ],
   entryComponents: [],
   imports: [

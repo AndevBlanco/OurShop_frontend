@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { UserGuard } from './guards/user.guard';
-import { AccountComponent } from './pages/account/account.component';
+import { AccountComponent } from './pages/user/account/account.component';
 import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './pages/login/login.component';
+import { LoginComponent } from './pages/user/login/login.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import {ProductAddComponent} from './pages/product/product-add/product-add.component';
 import { ProductComponent } from './pages/product/product.component';
-import { SignupComponent } from './pages/signup/signup.component';
+import { SignupComponent } from './pages/user/signup/signup.component';
+import { PasswordComponent } from './pages/user/password/password.component';
 
 const routes: Routes = [
   // {
@@ -38,6 +39,11 @@ const routes: Routes = [
         canActivate:[UserGuard]
       }
     ],
+  },
+  {
+    path:'password',
+    component:PasswordComponent,
+    canActivate:[UserGuard]
   },
   {
     path: 'product',
