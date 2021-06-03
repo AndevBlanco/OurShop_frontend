@@ -10,13 +10,22 @@
       <ion-input class="input-label" type ="email" name="email" placeholder="Email" formControlName="email" required>
         <img src="../../../assets/icon/email.svg" alt="icono de email">
       </ion-input>
+      <span style="color: red;"  *ngIf="formLogin.get('email').errors?.required && formLogin.touched">
+        Este campo debe ser completado
+      </span>
+      <span style="color: red;" *ngIf="formLogin.get('email').errors?.email && formLogin.get('email').errors?.required ">
+        Email invalido
+      </span>
       <ion-input class="input-label" type ="password"  name="password" placeholder="Password" formControlName="password" required >
         <img src="../../../assets/icon/password.svg" alt="icono de email">
       </ion-input>
+      <span style="color: red;"  *ngIf="formLogin.get('password').errors?.required && formLogin.touched">
+        Este campo debe ser completado
+      </span>
       <div class="container-register">
         <p>¿Aún no tienes una cuenta?<span [routerLink]="['/signup']" routerLinkActive="router-link-active" >Registrate</span></p>
       </div>
-      <ion-button type="submit" class="button-submit" expand="block" shape ="round">Iniciar</ion-button>
+      <ion-button type="submit" [disabled]="formLogin.invalid" class="button-submit" expand="block" shape ="round">Iniciar</ion-button>
     </form>
   </div>
   

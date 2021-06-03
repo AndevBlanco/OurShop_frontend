@@ -52,7 +52,8 @@ export class AuthService {
   logOut():void{
     this.token = '';
     localStorage.removeItem("ACCESS_TOKEN");
-    localStorage.removeItem("EXPIRE_IN");
+    localStorage.removeItem("EXPIRES_IN");
+    localStorage.removeItem("id")
     this.removeId();
   }
 

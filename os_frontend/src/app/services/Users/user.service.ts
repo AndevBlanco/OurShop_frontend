@@ -23,6 +23,7 @@ export class UserService {
     return this.httpClient.get<User>(`${this.AUTH_SERVER}/?id=${id}`)
   }
   saveId( newId){
+    localStorage.setItem("id",newId)
     this.userId = newId 
   }
   removeId(){
@@ -32,21 +33,24 @@ export class UserService {
 
   update(user:any,id):Observable<JwtResponse>{
     return this.httpClient.put<JwtResponse>(`${this.AUTH_SERVER}/?id=${id}`,user)
-    .pipe(tap(
-      (res:JwtResponse) => {
-        if(res){
-          //enviar id de usuario
-          this.saveId(res.id);
-          //Guardar Token
-          this.saveToken(res.accesToken, res.expiresIn);    
-        }
-      }
-      ));
   }
 
-  private saveToken(token: string, expiresIn:string):void{
-    localStorage.setItem("ACCESS_TOKEN",token);
-    localStorage.setItem("EXPIRES_IN",expiresIn);
-    this.token = token;
+  updatePassword(password,id):Observable<JwtResponse>{
+    return this.httpClient.put<JwtResponse>(`${this.AUTH_SERVER}/modifyPassword/?id=${id}`,password)
+    .pipe(tap(
+      (res:JwtResponse) =>{
+        if(res){
+          res.login = true
+        }else{
+          res.login = false
+        }
+      }
+    ))
   }
+
+  // private saveToken(token: string, expiresIn:string):void{
+  //   localStorage.setItem("ACCESS_TOKEN",token);
+  //   localStorage.setItem("EXPIRES_IN",expiresIn);
+  //   this.token = token;
+  // }
 }

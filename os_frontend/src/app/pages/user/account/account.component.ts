@@ -13,7 +13,8 @@ import { UserService } from 'src/app/services/Users/user.service';
 export class AccountComponent implements OnInit {
   
   user:User;
-  idUser:any;
+  // idUser:any;
+  idLocalStorage :any;
   formUpdate:FormGroup
   constructor(
     private userService:UserService,
@@ -21,7 +22,8 @@ export class AccountComponent implements OnInit {
     private formBuilder:FormBuilder,
     private router:Router
   ) {
-    this.idUser = this.activatedRoute.snapshot.paramMap.get('id');
+    this.idLocalStorage = localStorage.getItem("id")
+    // this.idUser = this.activatedRoute.snapshot.paramMap.get('id');
     this.buildForm();
    }
 
@@ -30,7 +32,7 @@ export class AccountComponent implements OnInit {
   }
 
   getUser(){
-    this.userService.getUser(this.idUser).subscribe( usuario => {
+    this.userService.getUser(this.idLocalStorage).subscribe( usuario => {
       this.user = usuario;
       this.formUpdate.patchValue(usuario)
       console.log(this.user.first_name)
@@ -51,8 +53,8 @@ export class AccountComponent implements OnInit {
         email: this.formUpdate.value.email,
       } 
       console.log('registro',userData)
-      this.userService.update(userData,this.idUser).subscribe( response => {
-        console.log('response logion',response)
+      this.userService.update(userData,this.idLocalStorage).subscribe( response => {
+        console.log('response registro',response)
         if(response){
           this.formUpdate.reset();
           this.router.navigateByUrl('/home')
@@ -82,6 +84,6 @@ export class AccountComponent implements OnInit {
   }
 
   goChangePassword(){
-    alert('se encuentra en desarrollo')
+    this.router.navigate(['password'])
   }
 }

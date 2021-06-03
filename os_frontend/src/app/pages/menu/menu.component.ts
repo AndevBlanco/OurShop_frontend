@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/Users/user.service';
 
@@ -7,9 +7,8 @@ import { UserService } from 'src/app/services/Users/user.service';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
 })
-export class MenuComponent implements OnInit,DoCheck {
+export class MenuComponent implements OnInit{
 
-  idUser:any
   constructor(
     private userService: UserService,
     private router:Router
@@ -21,16 +20,7 @@ export class MenuComponent implements OnInit,DoCheck {
 
   }
 
-  ngDoCheck(){
-    this.getId()
-  }
-
-  getId(){
-    this.idUser = this.userService.userId
-    console.log('id del usuario',this.idUser)
-  }
-
-  goUser(id:any) {
-    this.router.navigate(['account/' + id]);
+  goUser() {
+    this.router.navigate(['account/' + localStorage.getItem('id')]);
   }
 }
