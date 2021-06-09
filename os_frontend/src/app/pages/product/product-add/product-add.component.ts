@@ -20,10 +20,6 @@ export class ProductAddComponent implements OnInit {
     this.buildForm();
   }
 
-  ngDoCheck() {
-    console.log(this.photoSvc.photos[0]?.filepath);
-  }
-
   buildForm() {
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
@@ -35,5 +31,9 @@ export class ProductAddComponent implements OnInit {
 
   addNewToGallery() {
     this.photoSvc.addNewToGallery();
+  }
+
+  reload() {
+    window.location.reload();
   }
 }

@@ -1,7 +1,10 @@
 <ion-content>
   <ion-item>
-    <ion-button *ngIf="!photoSvc.photos[0]?.webviewPath" (click)="addNewToGallery()">Take Picture</ion-button>
-    <ion-img *ngIf="photoSvc.photos[0]?.webviewPath" [src]="photoSvc.photos[0]?.webviewPath"></ion-img>
+    <ion-col style="display: grid; justify-content: center;">
+      <ion-button horizontal="center" *ngIf="!photoSvc.photos[0]?.webviewPath" (click)="addNewToGallery()">Take Picture</ion-button>
+      <ion-img *ngIf="photoSvc.photos[0]?.webviewPath" [src]="photoSvc.photos[0]?.webviewPath"></ion-img>
+      <ion-button horizontal="center" *ngIf="photoSvc.photos[0]?.webviewPath" (click)="reload()">Cancel</ion-button>
+    </ion-col>
   </ion-item>
   <form [formGroup]="form" action="" accept-charset="utf-8">
     <ion-item>
