@@ -11,7 +11,7 @@
       <ion-button [routerLink]="['/login']">Login</ion-button>
       <ion-button [routerLink]="['/signup']">Sign Up</ion-button>
     </ion-buttons>
-    
+
     <!-- <ion-searchbar
       [(ngModel)]="miBuscador"
       [showCancelButton]="miStringDeCancell"
@@ -25,99 +25,105 @@
 <ion-content>
   <ion-row>
     <ion-col size="6">
-        <ion-chip color="primary" mode="ios" outline="true">
-          <ion-icon name="globe-outline"></ion-icon>
-          <ion-label>Technology</ion-label>
-        </ion-chip>
-        <ion-chip color="primary" mode="ios" outline="true">
-          <ion-icon name="football-outline"></ion-icon>
-          <ion-label>Sports</ion-label>
-        </ion-chip>
+      <ion-chip color="primary" mode="ios" outline="true">
+        <ion-icon name="globe-outline"></ion-icon>
+        <ion-label>Technology</ion-label>
+      </ion-chip>
+      <ion-chip color="primary" mode="ios" outline="true">
+        <ion-icon name="football-outline"></ion-icon>
+        <ion-label>Sports</ion-label>
+      </ion-chip>
     </ion-col>
     <ion-col size="6">
-        <ion-chip color="primary" mode="ios" outline="true">
-          <ion-icon name="construct-outline"></ion-icon>
-          <ion-label>Tools</ion-label>
-        </ion-chip>
-        <ion-chip color="primary" mode="ios" outline="true">
-          <ion-icon name="home-outline"></ion-icon>
-          <ion-label>House</ion-label>
-        </ion-chip>
+      <ion-chip color="primary" mode="ios" outline="true">
+        <ion-icon name="construct-outline"></ion-icon>
+        <ion-label>Tools</ion-label>
+      </ion-chip>
+      <ion-chip color="primary" mode="ios" outline="true">
+        <ion-icon name="home-outline"></ion-icon>
+        <ion-label>House</ion-label>
+      </ion-chip>
     </ion-col>
   </ion-row>
-  
-  <!-- carousel slide  -->
-    <ion-slides mode="ios" pager="ios" scrollbar="ios">
-      <ion-slide>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-            <ion-card-title>Card Title</ion-card-title>
-          </ion-card-header>
-        
-          <ion-card-content>
-            Keep close to Nature's heart... and break clear away, once in awhile,
-            and climb a mountain or spend a week in the woods. Wash your spirit clean.
-          </ion-card-content>
-        </ion-card>    </ion-slide>
-      <ion-slide>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-            <ion-card-title>Card Title</ion-card-title>
-          </ion-card-header>
-        
-          <ion-card-content>
-            Keep close to Nature's heart... and break clear away, once in awhile,
-            and climb a mountain or spend a week in the woods. Wash your spirit clean.
-          </ion-card-content>
-        </ion-card>    </ion-slide>
-      <ion-slide>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-            <ion-card-title>Card Title</ion-card-title>
-          </ion-card-header>
-        
-          <ion-card-content>
-            Keep close to Nature's heart... and break clear away, once in awhile,
-            and climb a mountain or spend a week in the woods. Wash your spirit clean.
-          </ion-card-content>
-        </ion-card>
-      </ion-slide>
-      <ion-slide>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-            <ion-card-title>Card Title</ion-card-title>
-          </ion-card-header>
-        
-          <ion-card-content>
-            Keep close to Nature's heart... and break clear away, once in awhile,
-            and climb a mountain or spend a week in the woods. Wash your spirit clean.
-          </ion-card-content>
-        </ion-card>
-      </ion-slide>
-    </ion-slides>
-  
-    <!-- slide por tema de producto -->
 
-    <ion-card (click)="goProduct(item._id)" *ngFor="let item of products">
-      <ion-card-header>
-        <ion-card-subtitle>{{item.price}}</ion-card-subtitle>
-        <ion-card-title>{{item.name}}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        {{item.description}}
-      </ion-card-content>
-    </ion-card>
-    <ion-fab *ngIf="userAuth" vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button>
-	<ion-icon name="share"></ion-icon>
+  <!-- carousel slide  -->
+  <ion-slides mode="ios" pager="ios" scrollbar="ios">
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <!-- slide por tema de producto -->
+
+  <ion-card (click)="goProduct(item._id)" *ngFor="let item of products">
+    <ion-card-header>
+      <ion-card-subtitle>{{item.price}}</ion-card-subtitle>
+      <ion-card-title>{{item.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{item.description}}
+    </ion-card-content>
+  </ion-card>
+  <ion-fab *ngIf="userAuth" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button routerLink="/crear-producto" color="medium">
+        <ion-icon name="add"></ion-icon>
       </ion-fab-button>
-      <ion-fab-list side="top">
-	<ion-fab-button routerLink="/crear-producto" color="medium"><ion-icon name="add"></ion-icon></ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="cart"></ion-icon>
+      </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
 </ion-content>
-  

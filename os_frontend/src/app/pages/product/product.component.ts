@@ -4,6 +4,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Product } from "src/app/models/product.model";
 import { ModalController } from "@ionic/angular";
 import { DescriptionModalComponent } from './description-modal/description-modal.component';
+import { Cart } from "src/app/models/cart.model";
 
 @Component({
   selector: 'app-product',
@@ -15,6 +16,7 @@ export class ProductComponent implements OnInit {
   label:any;
   product:any;
   completeInfo:Product;
+  productCart: Cart;
 
   constructor(
     private serviceProduct: ProductService,
@@ -31,7 +33,7 @@ export class ProductComponent implements OnInit {
   getProduct() {
     this.serviceProduct.getProduct(this.label).subscribe((product:Product) => {
       this.completeInfo = product;
-      console.log(product);
+      console.log(this.completeInfo);
     });
   }
 
@@ -46,4 +48,13 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  addCart() {
+    this.productCart = {
+      nameP: this.completeInfo.name,
+      priceP: this.completeInfo.price,
+      descriptionP: this.completeInfo.description,
+      dateAdd: this.completeInfo.date_added,
+    }
+    console.log(this.productCart);
+  }
 }

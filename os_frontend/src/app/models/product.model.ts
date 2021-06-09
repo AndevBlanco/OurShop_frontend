@@ -6,4 +6,6 @@ export interface Product {
     date_manufacture?:Date;
     description?:string;
     date_added?:Date;
+    stock?: number;
+    type?: string;
 }
