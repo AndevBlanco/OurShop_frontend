@@ -21,7 +21,7 @@ export class PhotoService {
     });
     
     const saveImageFile = await this.savePicture(capturedPhoto);
-    this.photos.unshift(saveImageFile);
+    // this.photos.unshift(saveImageFile);
   }
 
   private async savePicture(cameraPhoto: Photo) {
