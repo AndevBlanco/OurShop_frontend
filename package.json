@@ -1,9 +1,6 @@
 {
-  "name": "os_frontend",
-  "version": "1.0.0",
-  "engines": {
-    "node": "6.11.1"
-  },
+  "name": "OurShop_frontend",
+  "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
