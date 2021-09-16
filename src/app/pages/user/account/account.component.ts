@@ -2,7 +2,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { UserService } from 'src/app/services/Users/user.service';
 
 @Component({
@@ -18,8 +20,9 @@ export class AccountComponent implements OnInit {
   formUpdate:FormGroup
   constructor(
     private userService:UserService,
-    private activatedRoute: ActivatedRoute,
+    private authService:AuthService,
     private formBuilder:FormBuilder,
+    private toastController:ToastController,
     private router:Router
   ) {
     this.idLocalStorage = localStorage.getItem("id")
@@ -79,11 +82,49 @@ export class AccountComponent implements OnInit {
     });
   }
 
+  deleteUser(){
+    this.userService.deleteUser(this.idLocalStorage).subscribe(( async response=>{
+      console.log('Usuario Eliminado',response)
+      if(response){
+        await this.ToastSucess().then( () =>{
+          this.authService.logOut();
+          this.router.navigateByUrl("/home");
+        } )
+      }
+      else{
+        this.ToastUnsucessful();
+      }
+    }))
+    
+  }
   goDataPay(){
     alert('se encuentra en desarrollo')
   }
 
   goChangePassword(){
     this.router.navigate(['password'])
+  }
+
+
+  async ToastUnsucessful(){
+    const toast = await this.toastController.create({
+      message: 'El usuario no ha podido ser eliminado correctmaente 😢, intentalo denuevo',
+      duration: 3000,
+      position:'bottom',
+      color:"danger",
+      animated:true
+    });
+    await toast.present();   
+  }
+
+  async ToastSucess(){
+    const toast = await this.toastController.create({
+      message: '!Usuario eliminado correctamente¡',
+      duration: 3000,
+      position:'bottom',
+      color:"success",
+      animated:true
+    });
+    await toast.present();   
   }
 }

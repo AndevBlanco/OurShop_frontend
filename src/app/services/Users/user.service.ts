@@ -31,6 +31,10 @@ export class UserService {
     console.log('pa juera')
   }
 
+  deleteUser(id:any){
+    return this.httpClient.delete(`${this.AUTH_SERVER}/?id=${id}`)
+  }
+
   update(user:any,id):Observable<JwtResponse>{
     return this.httpClient.put<JwtResponse>(`${this.AUTH_SERVER}/?id=${id}`,user)
   }
