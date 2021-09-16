@@ -70,11 +70,11 @@ export class AuthService {
     return this.token
   }
 
-  saveId(id){
+  private saveId(id){
     this.userService.saveId(id);
     // this.userService.userId=id
   }
-  removeId(){
+  private removeId(){
     this.userService.removeId();
   }
 
