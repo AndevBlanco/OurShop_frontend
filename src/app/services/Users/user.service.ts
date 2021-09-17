@@ -22,7 +22,7 @@ export class UserService {
   getUser(id){
     return this.httpClient.get<User>(`${this.AUTH_SERVER}/?id=${id}`)
   }
-  saveId( newId){
+  saveId(newId){
     localStorage.setItem("id",newId)
     this.userId = newId 
   }

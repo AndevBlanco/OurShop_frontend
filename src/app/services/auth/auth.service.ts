@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { JwtResponse } from 'src/app/models/jwtresponse';
+import { JwtResponseRegister } from 'src/app/models/jwtresponseRegister';
 import { User } from 'src/app/models/user';
 import { UserLogin } from 'src/app/models/userLogin.model';
 import { UserService } from '../Users/user.service';
@@ -21,13 +22,13 @@ export class AuthService {
     private userService:UserService
     ) { }
 
-  register(user:User):Observable<JwtResponse>{
-    return this.httpClient.post<JwtResponse>(`${this.AUTH_SERVER}/`,user)
+  register(user:User):Observable<JwtResponseRegister>{
+    return this.httpClient.post<JwtResponseRegister>(`${this.AUTH_SERVER}/`,user)
     .pipe(tap(
-      (res:JwtResponse) => {
+      (res:JwtResponseRegister) => {
         if(res){
           //enviar id de usuario
-          this.saveId(res.id);
+          this.saveId(res._id);
           //Guardar Token
           this.saveToken(res.accesToken, res.expiresIn);    
         }

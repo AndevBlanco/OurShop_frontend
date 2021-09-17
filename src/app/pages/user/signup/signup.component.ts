@@ -46,11 +46,11 @@ export class SignupComponent implements OnInit {
         type_user: role
       } 
       this.authService.register(userData).subscribe( async response =>{
-        console.log('registro',userData)
+        console.log('registro response',response)
         if(response){
           await this.ToastSucess(response.username).then( () => {
-            this.formRegister.reset();
             this.router.navigateByUrl('/home')
+            this.formRegister.reset();
           })
         }else{
           this.ToastUnsucessful();
@@ -58,8 +58,8 @@ export class SignupComponent implements OnInit {
       })
       console.log('registro',userData)
     }else{
-
-      console.log('in-valido')
+      this.ToastUnsucessful();
+      console.log('in-valido');
     }
 
   }
