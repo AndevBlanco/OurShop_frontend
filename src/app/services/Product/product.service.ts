@@ -35,6 +35,10 @@ export class ProductService {
       ));
   }
 
+  editProduct(product: Product, label:string): Observable<ProductResponse> {
+    return this.http.put<ProductResponse>(`https://ourshopbackend.herokuapp.com/products?id=${label}`, product);
+  }
+
   saveProduct(res:ProductResponse) {
     this.product = res;
   }
