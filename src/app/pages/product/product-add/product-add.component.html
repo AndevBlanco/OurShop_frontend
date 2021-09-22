@@ -29,7 +29,8 @@
         <ion-grid>
           <ion-row class="footer-add-buttons">
             <ion-col class="footer-add-button">
-              <ion-button type="submit">Publicar</ion-button>
+              <ion-button *ngIf="!label" type="submit">Publicar</ion-button>
+              <ion-button (click)="onEdit()" *ngIf="label" type="button">Editar</ion-button>
             </ion-col>
             <ion-col class="footer-add-button">
               <a routerLink="/">Cancelar</a>

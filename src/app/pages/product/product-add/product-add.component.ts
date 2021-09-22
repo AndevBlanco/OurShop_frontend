@@ -4,6 +4,8 @@ import { Product } from 'src/app/models/product.model';
 import { PhotoService } from "src/app/services/Photos/photo.service";
 import { ProductService } from "src/app/services/Product/product.service";
 import { Router } from '@angular/router';
+import { ActivatedRoute } from "@angular/router";
+
 
 @Component({
   selector: 'app-product-add',
@@ -19,10 +21,20 @@ export class ProductAddComponent implements OnInit {
     private photoSvc: PhotoService,
     private productSvc: ProductService,
     private router: Router,
-  ) { }
+    private route: ActivatedRoute
+  ) {
+    this.label = route.snapshot.paramMap.get('label');
+   }
+
+   label:any;
+   product:Product;
 
   ngOnInit() {
+    if (this.label) {
+      this.getProduct();
+    }
     this.buildForm();
+    console.log(this.label);
   }
 
   buildForm() {
@@ -38,8 +50,45 @@ export class ProductAddComponent implements OnInit {
     this.photoSvc.addNewToGallery();
   }
 
+  getProduct() {
+    this.productSvc.getProduct(this.label).subscribe({
+      next: success => {
+        this.product = success;
+        this.form.patchValue({
+          name: this.product.name,
+          price: this.product.price,
+          description: this.product.description,
+        });
+        console.log(this.product);
+      },
+      error: error => {
+        console.error(error);
+      }
+    })
+  }
+
   reload() {
     window.location.reload();
+  }
+
+  onEdit() {
+    if(this.form.valid) {
+      console.log('valido')
+      const product: Product = {
+        name: this.form.value.name,
+        price : this.form.value.price,
+        description: this.form.value.description,
+        stock: this.form.value.stock,
+      } 
+    this.productSvc.editProduct(product, this.label).subscribe({
+      next: success => {
+        console.log(success);
+      },
+      error: error => {
+        console.error(error);
+      }
+    })
+  }
   }
 
   onPublish() {

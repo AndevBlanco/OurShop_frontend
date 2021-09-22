@@ -57,6 +57,10 @@ const routes: Routes = [
   {
     path: 'crear-producto',
     component: ProductAddComponent
+  },
+  {
+    path: 'editar-producto/:label',
+    component: ProductAddComponent
   }
 ];
 
