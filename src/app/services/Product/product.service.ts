@@ -42,5 +42,8 @@ export class ProductService {
   saveProduct(res:ProductResponse) {
     this.product = res;
   }
-
+  
+  deleteProduct(label:string) {
+    return this.http.delete(`https://ourshopbackend.herokuapp.com/products?id=${label}`);
+  }
 }
