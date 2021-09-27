@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from "src/app/services/Product/product.service";
-import { ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { Product } from "src/app/models/product.model";
 import { ModalController } from "@ionic/angular";
 import { DescriptionModalComponent } from './description-modal/description-modal.component';
+import { ToastController } from '@ionic/angular';
 import { Cart } from "src/app/models/cart.model";
 
 @Component({
@@ -22,6 +23,8 @@ export class ProductComponent implements OnInit {
     private serviceProduct: ProductService,
     private router: ActivatedRoute,
     private modalDescription: ModalController,
+    private route: Router,
+    private toast: ToastController,
   ) { 
     this.label = this.router.snapshot.paramMap.get('label');
   }
@@ -56,5 +59,42 @@ export class ProductComponent implements OnInit {
       dateAdd: this.completeInfo.date_added,
     }
     console.log(this.productCart);
+  }
+
+  deleteProduct() {
+    this.serviceProduct.deleteProduct(this.label).subscribe({
+      next: async success => {
+        console.log(success);
+        await this.ToastSucess().then(() => {
+          this.route.navigate(['/home']);
+        })
+      },
+      error: error =>{
+        console.error(error);
+        this.ToastUnsucessful();
+      }
+    })
+  }
+
+  async ToastSucess(){
+    const toast = await this.toast.create({
+      message: '!Se elimino producto!',
+      duration: 3000,
+      position:'bottom',
+      color:"success",
+      animated:true
+    });
+    await toast.present();   
+  }
+
+  async ToastUnsucessful(){
+    const toast = await this.toast.create({
+      message: '¡No se pudo eliminar el producto!',
+      duration: 3000,
+      position:'bottom',
+      color:"danger",
+      animated:true
+    });
+    await toast.present();   
   }
 }

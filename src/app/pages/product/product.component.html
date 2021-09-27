@@ -14,10 +14,12 @@
     <ion-row>
       <ion-col class="product-button">
         <ion-button shape="round">Comprar</ion-button>
+        <ion-button shape="round">Añadir</ion-button>
       </ion-col>
       <ion-col class="product-button">
         <!-- <ion-button (click)="addCart()" shape="round">Add car</ion-button> -->
         <ion-button shape="round" [routerLink]="['/editar-producto/' + label]" routerLinkActive="router-link-active" >Editar</ion-button>
+        <ion-button shape=round (click)="deleteProduct()">Eliminar</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
